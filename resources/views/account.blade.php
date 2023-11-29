@@ -74,7 +74,7 @@
     <div class="col-12 col-xxl-2 col-xl-6  col-lg-6 col-md-12 col-sm-12">
         <div class="card card-danger">
             <div class="card-header">
-                <h3 class="card-title">Days Remaining</h3>
+                <h3 class="card-title">Days Remaining <i class="fa-regular fa-calendar-days"></i></h3>
                 <div class="card-tools"><button type="button" class="btn btn-tool" data-lte-toggle="card-collapse"><i data-lte-icon="expand" class="bi bi-plus-lg"></i><i data-lte-icon="collapse" class="bi bi-dash-lg"></i></button></div><!-- /.card-tools -->
             </div><!-- /.card-header -->
             <div class="card-body">
