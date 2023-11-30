@@ -92,8 +92,7 @@
                             <td>High Ping</td>
                             <td><span class="badge text-bg-success">Solved</span></td>
                             <td>Basanta Sharma</td>
-                        </tr>
-                        
+                        </tr>    
                     </tbody>
                 </table>
 

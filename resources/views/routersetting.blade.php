@@ -58,37 +58,37 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <th>
+                            <td>
                                 <div class="text-success">
                                     <i class="fa-solid fa-wifi"></i>
                                     5Ghz
                                 </div>
-                            </th>
-                            <th>OppoA24</th>
-                            <th>3c:5a:81:eb:1a:c1</th>
-                            <th>192.168.1.254</th>
+                            </td>
+                            <td>OppoA24</td>
+                            <td>3c:5a:81:eb:1a:c1</td>
+                            <td>192.168.1.254</td>
                         </tr>
                         <tr>
-                            <th>
-                                <div class="text-danger">
+                            <td>
+                                <div class="text-success">
                                     <i class="fa-solid fa-wifi"></i>
                                     5Ghz
                                 </div>
-                            </th>
-                            <th>OppoA24</th>
-                            <th>3c:5a:81:eb:1a:c1</th>
-                            <th>192.168.1.254</th>
+                            </td>
+                            <td>OppoA24</td>
+                            <td>3c:5a:81:eb:1a:c1</td>
+                            <td>192.168.1.254</td>
                         </tr>
                         <tr>
-                            <th>
-                                <div class="text-warning">
+                            <td>
+                                <div class="text-success">
                                     <i class="fa-solid fa-wifi"></i>
                                     5Ghz
                                 </div>
-                            </th>
-                            <th>OppoA24</th>
-                            <th>3c:5a:81:eb:1a:c1</th>
-                            <th>192.168.1.254</th>
+                            </td>
+                            <td>OppoA24</td>
+                            <td>3c:5a:81:eb:1a:c1</td>
+                            <td>192.168.1.254</td>
                         </tr>
                     </tbody>
                 </table>
