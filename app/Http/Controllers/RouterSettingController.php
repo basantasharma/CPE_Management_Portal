@@ -4,6 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+
+
+
+//TO do essential
+
+// Account database
+// router uses information table 
+// router configuration status table and all the required models
+
 class RouterSettingController extends Controller
 {
     public function showRouterSettingPage()
