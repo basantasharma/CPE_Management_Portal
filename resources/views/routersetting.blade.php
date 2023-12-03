@@ -70,7 +70,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <div class="text-success">
+                                <div class="text-danger">
                                     <i class="fa-solid fa-wifi"></i>
                                     5Ghz
                                 </div>
@@ -81,7 +81,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <div class="text-success">
+                                <div class="text-warning">
                                     <i class="fa-solid fa-wifi"></i>
                                     5Ghz
                                 </div>
