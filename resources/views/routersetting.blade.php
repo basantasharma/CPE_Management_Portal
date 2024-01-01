@@ -5,118 +5,181 @@
 
 
 @section('body')
-<div class="row justify-content-center">
+<div class="row">
+    <div class="col-12 mb-4">
+        <div class="row">
+            <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-4">
+                <div class="card card-dark">
+                    <div class="card-header">
+                        <h3 class="card-title">Router Info <i class="fa-solid fa-wifi"></i></h3>
+                        <div class="card-tools"><button type="button" class="btn btn-tool" data-lte-toggle="card-collapse"><i data-lte-icon="expand" class="fa-solid fa-plus"></i> <i data-lte-icon="collapse" class="fa-solid fa-minus"></i></button></div><!-- /.card-tools -->
+                    </div><!-- /.card-header -->
+                    <div class="card-body">
+                        <table class="table table-striped">
+                            <tbody>
+                                <tr>
+                                    <td>Status</td>
+                                    <td class="text-end"><span class="badge text-bg-success p-2">Active</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Duration</td>
+                                    <td class="text-end"><span class="p-2">4 Hrs</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Power</td>
+                                    <td class="text-end"><span class="badge text-bg-success p-2">-16db</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
 
-    <div class="col-12 col-xxl-2 col-xl-6  col-lg-6 col-md-12 col-sm-12">
-        <div class="card card-info">
+                    </div><!-- /.card-body -->
+                </div><!-- /.card -->
+            </div>
+            <div class="col-12 col-xxl-6 col-xl-8  col-lg-6 col-md-12 col-sm-12">
+                <div class="card card-dark">
+                    <div class="card-header">
+                        <h3 class="card-title">Connected Devices <i class="fa-solid fa-mobile-screen-button"></i></h3>
+                        <div class="card-tools"><button type="button" class="btn btn-tool" data-lte-toggle="card-collapse"><i data-lte-icon="expand" class="fa-solid fa-plus"></i> <i data-lte-icon="collapse" class="fa-solid fa-minus"></i></button></div><!-- /.card-tools -->
+                    </div><!-- /.card-header -->
+                    <div class="card-body">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th style="width: 10px;">Wifi</th>
+                                    <th>Device</th>
+                                    <th>Mac Address</th>
+                                    <th>Ip Address</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="text-success">
+                                            <i class="fa-solid fa-wifi"></i>
+                                            5Ghz
+                                        </div>
+                                    </td>
+                                    <td>OppoA24</td>
+                                    <td>3c:5a:81:eb:1a:c1</td>
+                                    <td>192.168.1.254</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="text-danger">
+                                            <i class="fa-solid fa-wifi"></i>
+                                            5Ghz
+                                        </div>
+                                    </td>
+                                    <td>OppoA24</td>
+                                    <td>3c:5a:81:eb:1a:c1</td>
+                                    <td>192.168.1.254</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="text-warning">
+                                            <i class="fa-solid fa-wifi"></i>
+                                            5Ghz
+                                        </div>
+                                    </td>
+                                    <td>OppoA24</td>
+                                    <td>3c:5a:81:eb:1a:c1</td>
+                                    <td>192.168.1.254</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                    </div><!-- /.card-body -->
+                </div><!-- /.card -->
+            </div><!-- /.col -->
+
+        </div>
+    </div>
+
+    <div class="col-12 col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 mb-4">
+        <div class="card card-dark">
             <div class="card-header">
-                <h3 class="card-title">Router Info <i class="fa-solid fa-wifi"></i></h3>
-                <div class="card-tools"><button type="button" class="btn btn-tool" data-lte-toggle="card-collapse"><i data-lte-icon="expand" class="bi bi-plus-lg"></i><i data-lte-icon="collapse" class="bi bi-dash-lg"></i></button></div><!-- /.card-tools -->
+                <h3 class="card-title">5 Ghz Router Setting <i class="fa-solid fa-wifi"></i></h3>
+                <div class="card-tools"><button type="button" class="btn btn-tool" data-lte-toggle="card-collapse"><i data-lte-icon="expand" class="fa-solid fa-plus"></i> <i data-lte-icon="collapse" class="fa-solid fa-minus"></i></button></div><!-- /.card-tools -->
             </div><!-- /.card-header -->
             <div class="card-body">
-                <div class="row my-2">
+                <div class="row">
                     <div class="col">
-                        Status
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="floatingInput" placeholder="WiFi SSID 5G" value="CPE-Mngt.-Portal_5Ghz">
+                            <label for="floatingInput">WiFi SSID 5G</label>
+                        </div>  
                     </div>
-                    <div class="col text-end"><span class="badge text-bg-success">Active</span></div>
+                    <div class="col">
+                        <div class="input-group form-floating">
+                            <input type="password" class="form-control" id="currentPassword5g" placeholder="Current 5Ghz WiFi password 5G" aria-label="Current WiFi password 5G" value="123456789" disabled>
+                            <label for="currentPassword5g">Current WiFi Password 5G</label>
+                            <button type="button" class="btn btn-outline-info input-group-text bi-eye-slash" id="toggle-currentPassword5g">
+                            </button>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="row my-2">
                     <div class="col">
-                        Duration
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="HideflexSwitchCheckDefault">
+                            <label class="form-check-label" for="HideflexSwitchCheckDefault">Hide SSID</label>
+                        </div>
                     </div>
-                    <div class="col text-end">4Hrs</div>
-                </div>
 
-                <div class="row my-2">
                     <div class="col">
-                        Power
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="WlanflexSwitchCheckDefault">
+                            <label class="form-check-label" for="WlanflexSwitchCheckDefault">Enable WLAN</label>
+                        </div>
                     </div>
-                    <div class="col text-end"><span class="border border-success text-success">16db</span></div>
                 </div>
+                <div class="row">
+                    <div class="col col-lg-5">
+                        <div class="form-floating">
+                            <!-- <div class="input-group"> -->
+                                <input type="password" class="form-control" id="newPassword5g" placeholder="ew WiFi password 5G" aria-label="New WiFi password 5G" value="">
+                                <label for="newPassword5g">New WiFi Password 5G</label>
+                                <!-- </div> -->
+                            </div>
+                    </div>
+                    <div class="col m-0 p-0">
+                        <span class="btn btn-outline-info input-group-text bi-eye-slash" id="toggle-newPassword5g">
+                        </span>
+                    </div>
+                    <div class="col"><button class="btn btn-info" >Generate Password</button></div>
+                </div> 
 
+                <div class="row mt-2">
+                    <div class="col">
+
+                        <button class="btn btn-success">Save settings</button>                               
+                    </div>
+                </div>
             </div><!-- /.card-body -->
         </div><!-- /.card -->
     </div><!-- /.col -->
 
-
-    <div class="col-12 col-xxl-4 col-xl-8  col-lg-6 col-md-12 col-sm-12">
-        <div class="card card-info">
+    <div class="col-12 col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 mb-4">
+        <div class="card card-dark">
             <div class="card-header">
-                <h3 class="card-title">Connected Devices <i class="fa-solid fa-mobile-screen-button"></i></h3>
-                <div class="card-tools"><button type="button" class="btn btn-tool" data-lte-toggle="card-collapse"><i data-lte-icon="expand" class="bi bi-plus-lg"></i><i data-lte-icon="collapse" class="bi bi-dash-lg"></i></button></div><!-- /.card-tools -->
-            </div><!-- /.card-header -->
-            <div class="card-body">
-                <table class="table table-striped table-info">
-                    <thead>
-                        <tr>
-                            <th style="width: 10px;">Wifi</th>
-                            <th>Device</th>
-                            <th>Mac Address</th>
-                            <th>Ip Address</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <div class="text-success">
-                                    <i class="fa-solid fa-wifi"></i>
-                                    5Ghz
-                                </div>
-                            </td>
-                            <td>OppoA24</td>
-                            <td>3c:5a:81:eb:1a:c1</td>
-                            <td>192.168.1.254</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="text-danger">
-                                    <i class="fa-solid fa-wifi"></i>
-                                    5Ghz
-                                </div>
-                            </td>
-                            <td>OppoA24</td>
-                            <td>3c:5a:81:eb:1a:c1</td>
-                            <td>192.168.1.254</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="text-warning">
-                                    <i class="fa-solid fa-wifi"></i>
-                                    5Ghz
-                                </div>
-                            </td>
-                            <td>OppoA24</td>
-                            <td>3c:5a:81:eb:1a:c1</td>
-                            <td>192.168.1.254</td>
-                        </tr>
-                    </tbody>
-                </table>
-                
-            </div><!-- /.card-body -->
-        </div><!-- /.card -->
-    </div><!-- /.col -->
-
-    <div class="col col-lg-4">
-        <div class="card card-info">
-            <div class="card-header">
-                <h3 class="card-title">Router Setting <i class="fa-solid fa-wifi"></i></h3>
-                <div class="card-tools"><button type="button" class="btn btn-tool" data-lte-toggle="card-collapse"><i data-lte-icon="expand" class="bi bi-plus-lg"></i><i data-lte-icon="collapse" class="bi bi-dash-lg"></i></button></div><!-- /.card-tools -->
+                <h3 class="card-title">2.4 Ghz Router Setting <i class="fa-solid fa-wifi"></i></h3>
+                <div class="card-tools"><button type="button" class="btn btn-tool" data-lte-toggle="card-collapse"><i data-lte-icon="expand" class="fa-solid fa-plus"></i> <i data-lte-icon="collapse" class="fa-solid fa-minus"></i></button></div><!-- /.card-tools -->
             </div><!-- /.card-header -->
             <div class="card-body">
 
                 <div class="row">
                     <div class="col">
                         <div class="form-floating">
-                            <input type="text" class="form-control" id="floatingInput" placeholder="WiFi Name" value="CPE-Mngt.-Portal">
-                            <label for="floatingInput">WiFi SSID</label>
-                          </div>  
+                            <input type="text" class="form-control" id="floatingInput" placeholder="WiFi Name" value="CPE-Mngt.-Portal_2.4Ghz">
+                            <label for="floatingInput">WiFi SSID 2.4G</label>
+                        </div>  
                     </div>
                     <div class="col">
                         <div class="input-group form-floating">
-                            <input type="password" class="form-control" id="oldPassword" placeholder="Old WiFi password" aria-label="Old WiFi password" value="123456789" disabled>
-                            <label for="oldPassword">Current WiFi Password</label>
-                            <button type="button" class="btn btn-outline-info input-group-text bi-eye-slash" id="toggle-password">
+                            <input type="password" class="form-control" id="currentPassword24g" placeholder="Current WiFi password 2.4G" aria-label="Current WiFi password 2.4G" value="123456789" disabled>
+                            <label for="currentPassword24g">Current WiFi Password 2.4G</label>
+                            <button type="button" class="btn btn-outline-info input-group-text bi-eye-slash" id="toggle-currentPassword24g">
                             </button>
                         </div>
                     </div>
@@ -142,16 +205,16 @@
                     <div class="col col-lg-5">
                         <div class="form-floating">
                             <!-- <div class="input-group"> -->
-                                <input type="password" class="form-control" id="newPassword" placeholder="WiFi password" aria-label="Old WiFi password" value="">
-                                <label for="newPassword">New WiFi Password</label>
+                                <input type="password" class="form-control" id="newPassword24g" placeholder="New WiFi password 2.4G" aria-label="New WiFi password 2.4G" value="">
+                                <label for="newPassword24g">New WiFi Password 2.4G</label>
                                 <!-- </div> -->
                             </div>
                     </div>
                     <div class="col m-0 p-0">
-                        <span class="btn btn-outline-info input-group-text bi-eye-slash" id="toggle-newPassword">
+                        <span class="btn btn-outline-info input-group-text bi-eye-slash" id="toggle-newPassword24g">
                         </span>
                     </div>
-                    <div class="col col-lg-6"><button class="btn btn-info" >Generate Password</button></div>
+                    <div class="col"><button class="btn btn-info" >Generate Password</button></div>
                 </div> 
                 <div class="row mt-2">
                     <div class="col">
@@ -167,4 +230,10 @@
 
 
 
+@endsection
+
+@section('script-end')
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css" integrity="sha256-BicZsQAhkGHIoR//IB2amPN5SrRb3fHB8tFsnqRAwnk=" crossorigin="anonymous"><!--end::Third Party Plugin(Bootstrap Icons)-->
+
+@vite("resources/js/togglePasswordVisible.js")
 @endsection

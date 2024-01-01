@@ -20,7 +20,7 @@
                     <div class="card  card-warning">
                         <div class="card-header">
                             <h3 class="card-title">My Last Tickets <i class="fa-solid fa-ticket"></i></h3>
-                            <div class="card-tools"><button type="button" class="btn btn-tool" data-lte-toggle="card-collapse"><i data-lte-icon="expand" class="bi bi-plus-lg"></i><i data-lte-icon="collapse" class="bi bi-dash-lg"></i></button></div><!-- /.card-tools -->
+                            <div class="card-tools"><button type="button" class="btn btn-tool" data-lte-toggle="card-collapse"><i data-lte-icon="expand" class="fa-solid fa-plus"></i> <i data-lte-icon="collapse" class="fa-solid fa-minus"></i></button></div><!-- /.card-tools -->
                         </div><!-- /.card-header -->
                         <div class="card-body">
                             <table class="table table-striped table-warning">

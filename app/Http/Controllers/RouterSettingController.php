@@ -215,7 +215,7 @@ class RouterSettingController extends Controller
     }
 
 
-
+    
     public function getActiveUsersRouter()
     {
         $apiUrl = 'http://192.168.1.4:7557/devices?query=&projection=InternetGatewayDevice.LANDevice';

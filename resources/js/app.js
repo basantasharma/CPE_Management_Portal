@@ -482,32 +482,6 @@ import './bootstrap';
 
 
 
-const togglePassword = document.querySelector("#toggle-password");
-const oldPassword = document.querySelector("#oldPassword");
 
-togglePassword.addEventListener("click", function() {
-  if (oldPassword.type === "password") {
-    oldPassword.type = "text";
-    togglePassword.classList.remove("bi-eye-slash");
-    togglePassword.classList.add("bi-eye");
-  } else {
-    oldPassword.type = "password";
-    togglePassword.classList.remove("bi-eye");
-    togglePassword.classList.add("bi-eye-slash");
-  }
-});
 
-const toggleNewPassword = document.querySelector("#toggle-newPassword");
-const newPassword = document.querySelector("#newPassword");
 
-toggleNewPassword.addEventListener("click", function() {
-  if (newPassword.type === "password") {
-    newPassword.type = "text";
-    toggleNewPassword.classList.remove("bi-eye-slash");
-    toggleNewPassword.classList.add("bi-eye");
-  } else {
-    newPassword.type = "password";
-    toggleNewPassword.classList.remove("bi-eye");
-    toggleNewPassword.classList.add("bi-eye-slash");
-  }
-});
