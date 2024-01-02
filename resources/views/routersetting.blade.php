@@ -8,7 +8,7 @@
 <div class="row">
     <div class="col-12 mb-4">
         <div class="row">
-            <div class="col-12 col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-4">
+            <div class="col-12 col-xxl-4 col-xl-4 col-lg-4 col-md-4 col-sm-4 mb-4">
                 <div class="card card-dark">
                     <div class="card-header">
                         <h3 class="card-title">Router Info <i class="fa-solid fa-wifi"></i></h3>
@@ -35,7 +35,7 @@
                     </div><!-- /.card-body -->
                 </div><!-- /.card -->
             </div>
-            <div class="col-12 col-xxl-6 col-xl-8  col-lg-6 col-md-12 col-sm-12">
+            <div class="col-12 col-xxl-8 col-xl-8 col-lg-8 col-md-8 col-sm-8">
                 <div class="card card-dark">
                     <div class="card-header">
                         <h3 class="card-title">Connected Devices <i class="fa-solid fa-mobile-screen-button"></i></h3>
@@ -95,7 +95,7 @@
         </div>
     </div>
 
-    <div class="col-12 col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 mb-4">
+    <div class="col-12 col-xxl-6 col-xl-6 col-lg-8 col-md-8 col-sm-8 mb-4">
         <div class="card card-dark">
             <div class="card-header">
                 <h3 class="card-title">5 Ghz Router Setting <i class="fa-solid fa-wifi"></i></h3>
@@ -111,8 +111,8 @@
                     </div>
                     <div class="col">
                         <div class="input-group form-floating">
-                            <input type="password" class="form-control" id="currentPassword5g" placeholder="Current 5Ghz WiFi password 5G" aria-label="Current WiFi password 5G" value="123456789" disabled>
-                            <label for="currentPassword5g">Current WiFi Password 5G</label>
+                            <input type="password" class="form-control" id="currentPassword5g" placeholder="Current password 5G" aria-label="Current password 5G" value="123456789" disabled>
+                            <label for="currentPassword5g">Current Password 5G</label>
                             <button type="button" class="btn btn-outline-info input-group-text bi-eye-slash" id="toggle-currentPassword5g">
                             </button>
                         </div>
@@ -135,15 +135,15 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col col-lg-5">
+                    <div class="col col-lg-6">
                         <div class="form-floating">
                             <!-- <div class="input-group"> -->
-                                <input type="password" class="form-control" id="newPassword5g" placeholder="ew WiFi password 5G" aria-label="New WiFi password 5G" value="">
-                                <label for="newPassword5g">New WiFi Password 5G</label>
+                                <input type="password" class="form-control" id="newPassword5g" placeholder="New password 5G" aria-label="New password 5G" value="">
+                                <label for="newPassword5g">New Password 5G</label>
                                 <!-- </div> -->
-                            </div>
+                        </div>
                     </div>
-                    <div class="col m-0 p-0">
+                    <div class="col-1 m-0 p-0">
                         <span class="btn btn-outline-info input-group-text bi-eye-slash" id="toggle-newPassword5g">
                         </span>
                     </div>
@@ -160,7 +160,7 @@
         </div><!-- /.card -->
     </div><!-- /.col -->
 
-    <div class="col-12 col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 mb-4">
+    <div class="col-12 col-xxl-6 col-xl-6 col-lg-8 col-md-8 col-sm-8 mb-4">
         <div class="card card-dark">
             <div class="card-header">
                 <h3 class="card-title">2.4 Ghz Router Setting <i class="fa-solid fa-wifi"></i></h3>
@@ -177,8 +177,8 @@
                     </div>
                     <div class="col">
                         <div class="input-group form-floating">
-                            <input type="password" class="form-control" id="currentPassword24g" placeholder="Current WiFi password 2.4G" aria-label="Current WiFi password 2.4G" value="123456789" disabled>
-                            <label for="currentPassword24g">Current WiFi Password 2.4G</label>
+                            <input type="password" class="form-control" id="currentPassword24g" placeholder="Current password 2.4G" aria-label="Current password 2.4G" value="123456789" disabled>
+                            <label for="currentPassword24g">Current Password 2.4G</label>
                             <button type="button" class="btn btn-outline-info input-group-text bi-eye-slash" id="toggle-currentPassword24g">
                             </button>
                         </div>
@@ -202,15 +202,15 @@
                 </div>
 
                 <div class="row">
-                    <div class="col col-lg-5">
+                    <div class="col col-lg-6">
                         <div class="form-floating">
                             <!-- <div class="input-group"> -->
-                                <input type="password" class="form-control" id="newPassword24g" placeholder="New WiFi password 2.4G" aria-label="New WiFi password 2.4G" value="">
-                                <label for="newPassword24g">New WiFi Password 2.4G</label>
+                                <input type="password" class="form-control" id="newPassword24g" placeholder="New password 2.4G" aria-label="New password 2.4G" value="">
+                                <label for="newPassword24g">New Password 2.4G</label>
                                 <!-- </div> -->
                             </div>
                     </div>
-                    <div class="col m-0 p-0">
+                    <div class="col-1 m-0 p-0">
                         <span class="btn btn-outline-info input-group-text bi-eye-slash" id="toggle-newPassword24g">
                         </span>
                     </div>
