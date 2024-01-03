@@ -14886,7 +14886,7 @@ html.maximized-card {
   width: 4px;
   margin: 0;
   content: "";
-  background-color: var(--bs-border-color);
+  background-color: #212529;
 }
 .timeline > div {
   position: relative;
@@ -15462,5 +15462,4 @@ html.maximized-card {
 .img-size-32 {
   width: 32px;
 }
-
 /*# sourceMappingURL=adminlte.css.map */
