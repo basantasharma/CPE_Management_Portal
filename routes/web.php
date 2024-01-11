@@ -34,8 +34,8 @@ use App\Http\Controllers\EmailVarificationController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('index');
+// Route::get('/welcome', function () {
+//     return view('welcome');
 // });
 Route::get('/', [HomeController::class, 'showHomePage'])->name('index');
 Route::get('/adduser', [UserController::class, 'showAddUserPage'])->name('adduser')->middleware(['auth', 'verified']);;
