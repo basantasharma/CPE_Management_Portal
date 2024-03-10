@@ -307,7 +307,6 @@ class RouterSettingController extends Controller
     {
         $info = array();
 
-        // dd($data[0]['InternetGatewayDevice']['LANDevice'][1]['WLANConfiguration'][1]['X_HW_PowerValue']['_value']);
         if($this->refreshRouterPower($id))
         {
             $url = 'http://1.1.1.2:7557/devices?query=%7B%22_id%22%3A%22'.$id.'%22%7D&projection=InternetGatewayDevice.LANDevice.1.WLANConfiguration.1.X_HW_PowerValue,_lastBoot';
@@ -352,7 +351,6 @@ class RouterSettingController extends Controller
             }
             curl_close($ch);
             $data = json_decode($response, true);
-            // dd($data[0]['InternetGatewayDevice']['LANDevice'][1]['Hosts']['Host']);
             $DevicesData = $data[0]['InternetGatewayDevice']['LANDevice'][1]['Hosts'];
             for($i=1; $i<=$DevicesData["HostNumberOfEntries"]['_value']; $i++)
             {
