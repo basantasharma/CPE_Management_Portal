@@ -82,6 +82,13 @@ Route::post('/removeuserpermission', [UsersPermissionsController::class, 'remove
 Route::get('/deletealluserpermission', [UsersPermissionsController::class, 'deleteAllUserPermissions'])->name('deleteAlluserPermission')->middleware('auth');
 
 
+
+Route::get('/getactivedevice', [RouterSettingController::class, 'getActiveDevices'])->name('getActiveDevices')->middleware('auth');
+Route::get('/refreshhost', [RouterSettingController::class, 'refreshHost'])->name('refreshHost')->middleware('auth');
+Route::get('/getrouterinfo', [RouterSettingController::class, 'getRouterInfo'])->name('getRouterInfo')->middleware('auth');
+Route::post('/routersetting', [RouterSettingController::class, 'routerSetting'])->name('routerSetting')->middleware('auth');
+
+
 Route::get('/email/verify',[EmailVarificationController::class, 'index'])->middleware('auth')->name('verification.notice');
 
 
