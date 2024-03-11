@@ -35,10 +35,10 @@
         <input name="password_confirmation" type="password" id="password_confirmation" class="form-control form-control-md" placeholder="********" />
       </div>
 
-      <div class="form-outline mb-2">
+      {{-- <div class="form-outline mb-2">
         <label class="form-label" for="typeSerialNumberX-2">Serial Number</label>
         <input name="serialnumber" type="text" id="typeSerialNumberX-2" class="form-control form-control-md" placeholder="Serial Number" />
-      </div>
+      </div> --}}
       <div class="text-center">
         <button class="btn btn-info" type="submit">Register</button>
       </div>

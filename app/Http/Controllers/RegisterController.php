@@ -47,7 +47,7 @@ class RegisterController extends Controller
 
         if(!is_null($user))
         {
-            event(new Registered($user));
+            // event(new Registered($user));
 
             //now send the verification link to the user 
             // we can use mail function

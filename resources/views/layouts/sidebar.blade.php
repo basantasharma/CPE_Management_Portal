@@ -53,13 +53,13 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link @yield('services')"><i class="nav-icon fa-solid fa-microchip"></i>
+              <a href="/services" class="nav-link @yield('services')"><i class="nav-icon fa-solid fa-microchip"></i>
                 <p>Services</p>
               </a>
             </li>
 
             <li class="nav-item">
-              <a href="#" class="nav-link @yield('contacts')"><i class="nav-icon fa-solid fa-phone-volume"></i>
+              <a href="/contacts" class="nav-link @yield('contacts')"><i class="nav-icon fa-solid fa-phone-volume"></i>
                 <p>Contacts</p>
               </a>
             </li>

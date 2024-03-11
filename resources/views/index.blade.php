@@ -2,10 +2,64 @@
 @section('title', 'Telnet')
 @section('headerLeft', 'Home')
 @section('home', 'active')
-@section('sidebar')
 
 @section('body')
+<section class="p-4 hcf-bp-center hcf-bs-cover hcf-overlay hcf-transform mb-4" style="background: linear-gradient(-135deg, black, grey) ; border-radius:50px;">
+  {{-- <section class="px-5 py-6 py-xxl-10 hcf-bp-center hcf-bs-cover hcf-overlay hcf-transform mb-4" style="background-image: url('/images/techback.jpg') ;"> --}}
+  <div class="container-fluid">
+     <div class="row justify-content-md-center">
+       <div class="col-12 col-md-11 col-lg-9 col-xl-7 col-xxl-6 text-center text-white">
+         <h1 class="display-3 fw-bold mb-3">CPE Management Portal</h1>
+         <p class="lead mb-5">Efficiently manage your CPE devices with our advanced portal. Streamline operations, enhance security, and optimize performance.</p>
+         <div class="d-grid gap-4 d-sm-flex justify-content-sm-center">
+          @auth
+           <a href="/dashboard" class="btn btn-outline-light btn-lg px-4 gap-3">Get Started</a>
+          @else
+          <a href="/login" class="btn btn-outline-light btn-lg px-4 gap-3">Get Started</a>
+          @endauth
+           <a href="#" class="btn btn-outline-light btn-lg px-4">Learn More</a>
+         </div>
+       </div>
+     </div>
+  </div>
+ </section>
 
+
+ <div class="container">
+ <div class="row">
+    <div class="col-md-4">
+      <div class="card bg-dark text-light">
+        <img src="/images/monitoring.png" class="card-img-top" alt="Monitoring">
+        <div class="card-body border-top">
+          <h2 class="card-title ">Monitoring</h2><br>
+          <p class="card-text">Automated monitoring of CPE devices ensures optimal network performance and security. Utilizing TR-069, we can collect data for business analysis, detect active users, and optimize network settings for better performance.</p>
+          <a href="#" class="btn btn-outline-light">Learn More</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card bg-dark text-light">
+        <img src="/images/setting.png" class="card-img-top" alt="Monitoring">
+        <div class="card-body border-top">
+          <h2 class="card-title">Change Settings</h2><br>
+          <p class="card-text">Efficiently manage CPE settings remotely using TR-069. This feature reduces the need for physical visits, speeds up the deployment process, and ensures devices are always configured optimally for your network.</p>
+          <a href="#" class="btn btn-outline-light">Learn More</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card bg-dark text-light">
+        <img src="/images/manage.png" class="card-img-top" alt="Monitoring">
+        <div class="card-body border-top">
+          <h2 class="card-title">Manage Connected Devices</h2><br>
+          <p class="card-text">Centralized management of connected devices, including firmware upgrades, configuration backups, and scheduling maintenance tasks. This ensures your network remains secure and operational, with minimal downtime.</p>
+          <a href="#" class="btn btn-outline-light">Learn More</a>
+        </div>
+      </div>
+    </div>
+ </div>
+</div>
+  
 {{-- 
 <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-indicators">
