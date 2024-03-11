@@ -17,6 +17,8 @@ use App\Http\Controllers\AccountController;
 use App\Http\Controllers\RouterSettingController;
 use App\Http\Controllers\SupportController;
 use App\Http\Controllers\OffersController;
+use App\Http\Controllers\ServicesController;
+use App\Http\Controllers\ContactsController;
 use App\Http\Controllers\TimelineController;
 use App\Http\Controllers\EmailVarificationController;
 
@@ -53,6 +55,8 @@ Route::get('/account', [AccountController::class, 'showAccountPage'])->name('acc
 Route::get('/router', [RouterSettingController::class, 'showRouterSettingPage'])->name('router')->middleware('auth');
 Route::get('/support', [SupportController::class, 'showSupportPage'])->name('support')->middleware('auth');
 Route::get('/offers', [OffersController::class, 'showOffersPage'])->name('offers');
+Route::get('/services', [ServicesController::class, 'showServicesPage'])->name('services');
+Route::get('/contacts', [ContactsController::class, 'showContactsPage'])->name('contacts');
 Route::get('/timeline', [TimelineController::class, 'showTimelinePage'])->name('timeline');
 
 
