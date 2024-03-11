@@ -13,26 +13,50 @@
                 <div class="card card-dark">
                     <div class="card-header">
                         <h3 class="card-title">Router Info <i class="fa-solid fa-wifi"></i></h3>
-                        <div class="card-tools"><button type="button" class="btn btn-tool" data-lte-toggle="card-collapse"><i data-lte-icon="expand" class="fa-solid fa-plus"></i> <i data-lte-icon="collapse" class="fa-solid fa-minus"></i></button></div><!-- /.card-tools -->
+                        <div class="card-tools"><button type="button" class="btn btn-tool"
+                                data-lte-toggle="card-collapse"><i data-lte-icon="expand" class="fa-solid fa-plus"></i>
+                                <i data-lte-icon="collapse" class="fa-solid fa-minus"></i></button></div>
+                        <!-- /.card-tools -->
                     </div><!-- /.card-header -->
                     <div class="card-body">
                         <table class="table table-striped">
                             <tbody>
                                 <tr>
                                     <td>Status</td>
-                                    <td class="text-end"><span class="badge text-bg-success p-2">Active</span></td>
+                                    <td class="text-end"><span
+                                            class="badge {{ $routerInfo['active'] === 'Active' ? 'text-bg-success' : 'text-bg-danger' }}  p-2">{{
+                                            $routerInfo['active'] }}</span></td>
                                 </tr>
                                 <tr>
                                     <td>Duration</td>
-                                    <td class="text-end"><span class="p-2">4 Hrs</span></td>
+                                    <td class="text-end">
+                                        @if ($routerInfo['lastBoot'])
+                                        <span class="p-2">{{ $routerInfo['lastBoot']['h'] }} Hrs {{
+                                            $routerInfo['lastBoot']['i'] }} min</span>
+                                        @else
+                                        <span class="p-2"> Router's Offline</span>
+                                        @endif
+                                    </td>
+                                    {{-- <td class="text-end"><span class="p-2">{{
+                                            Carbon\Carbon::parse($routerInfo['lastBoot'], 'UTC')->format('H:i') }} {{
+                                            Carbon\Carbon::parse($routerInfo['lastBoot'], 'UTC')->format('A') }} </span>
+                                    </td> --}}
                                 </tr>
                                 <tr>
                                     <td>Power</td>
-                                    <td class="text-end"><span class="badge text-bg-success p-2">-16db</span></td>
+                                    <td class="text-end"><span class="badge {{ $routerInfo['active'] === 'Active' ? 'text-bg-success' : 'text-bg-danger' }} p-2">{{ $routerInfo['routerPower'] }}</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Restart</td>
+                                    <td class="text-end">
+                                        <span>
+                                            <form action="/reboot" method="post">@csrf @method('post')<button class="btn btn-danger btn-sm" type="submit"><i class="fa-solid fa-repeat"></i></button></form>
+                                        </span>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
-        
+
                     </div><!-- /.card-body -->
                 </div><!-- /.card -->
             </div>

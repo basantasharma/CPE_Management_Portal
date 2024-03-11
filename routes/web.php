@@ -87,6 +87,7 @@ Route::get('/getactivedevice', [RouterSettingController::class, 'getActiveDevice
 Route::get('/refreshhost', [RouterSettingController::class, 'refreshHost'])->name('refreshHost')->middleware('auth');
 Route::get('/getrouterinfo', [RouterSettingController::class, 'getRouterInfo'])->name('getRouterInfo')->middleware('auth');
 Route::post('/routersetting', [RouterSettingController::class, 'routerSetting'])->name('routerSetting')->middleware('auth');
+Route::post('/reboot', [RouterSettingController::class, 'rebootRouter'])->name('rebootRouter')->middleware('auth');
 
 
 Route::get('/email/verify',[EmailVarificationController::class, 'index'])->middleware('auth')->name('verification.notice');

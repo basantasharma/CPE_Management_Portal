@@ -43,9 +43,15 @@
                                 </tr>
                                 <tr>
                                     <td>Power</td>
-                                    <td class="text-end"><span
-                                            class="badge {{ $routerInfo['active'] === 'Active' ? 'text-bg-success' : 'text-bg-danger' }} p-2">{{
-                                            $routerInfo['routerPower'] }}</span></td>
+                                    <td class="text-end"><span class="badge {{ $routerInfo['active'] === 'Active' ? 'text-bg-success' : 'text-bg-danger' }} p-2">{{ $routerInfo['routerPower'] }}</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Restart</td>
+                                    <td class="text-end">
+                                        <span>
+                                            <form action="/reboot" method="post">@csrf @method('post')<button class="btn btn-danger btn-sm" type="submit"><i class="fa-solid fa-repeat"></i></button></form>
+                                        </span>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -73,15 +79,12 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                {{-- @php
-                                dd($routerSettingInfo["Devices"]);
-                                @endphp --}}
+                                
                                 @if ($routerSettingInfo["Devices"])
                                 @foreach ($routerSettingInfo["Devices"] as $devices)
                                 <tr>
                                     <td>
-                                        <div
-                                            class="text-success {{ $devices['Active']['_value'] === true ? 'text-success' : 'text-danger' }}">
+                                        <div class="text-success {{ $devices['Active']['_value'] === true ? 'text-success' : 'text-danger' }}">
                                             <i class="fa-solid fa-wifi"></i>
                                             @if ($devices['Active']['_value'] === false)
                                             offline

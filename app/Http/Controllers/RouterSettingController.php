@@ -30,11 +30,11 @@ class RouterSettingController extends Controller
     //     curl_setopt($ch1, CURLOPT_POST, true);
     //     curl_setopt($ch1, CURLOPT_POSTFIELDS, $requiredData);
     //     curl_setopt($ch1, CURLOPT_RETURNTRANSFER, true);
-    //     $response1 = curl_exec($ch1);
+    //     $response = curl_exec($ch1);
     //     curl_close($ch1);
-    //     if($response1)
+    //     if($response)
     //     {
-    //         return $response1;
+    //         return $response;
     //     }
     //     else 
     //     {
@@ -50,7 +50,7 @@ class RouterSettingController extends Controller
         curl_setopt($ch1, CURLOPT_POST, true);
         curl_setopt($ch1, CURLOPT_POSTFIELDS, $requiredData);
         curl_setopt($ch1, CURLOPT_RETURNTRANSFER, true);
-        $response1 = curl_exec($ch1);
+        $response = curl_exec($ch1);
         $code = curl_getinfo($ch1)["http_code"];
         curl_close($ch1);
         if($code === 200)
@@ -70,7 +70,7 @@ class RouterSettingController extends Controller
         curl_setopt($ch1, CURLOPT_POST, true);
         curl_setopt($ch1, CURLOPT_POSTFIELDS, $requiredData);
         curl_setopt($ch1, CURLOPT_RETURNTRANSFER, true);
-        $response1 = curl_exec($ch1);
+        $response = curl_exec($ch1);
         $code = curl_getinfo($ch1)["http_code"];
         curl_close($ch1);
         if($code === 200)
@@ -91,7 +91,7 @@ class RouterSettingController extends Controller
         curl_setopt($ch1, CURLOPT_POSTFIELDS, $requiredData);
         curl_setopt($ch1, CURLOPT_RETURNTRANSFER, true);
         // curl_setopt($ch1, CURLOPT_HEADER, true);
-        $response1 = curl_exec($ch1);
+        $response = curl_exec($ch1);
         $code = curl_getinfo($ch1)["http_code"];
         curl_close($ch1);
         if($code === 200)
@@ -359,6 +359,14 @@ class RouterSettingController extends Controller
                     $Devices[] = $DevicesData['Host'][$i];
                 }
             }
+            usort($Devices, function($a, $b) {
+                return $b['Active']['_value'] <=> $a['Active']['_value'];
+            });
+            usort($Devices, function($a, $b) {
+                if($a['Active']['_value'] & $b['Active']['_value'])
+                    return $b['X_HW_RSSI']['_value'] <=> $a['X_HW_RSSI']['_value'];
+            });
+            // dd($Devices);
             $info["SSID"] = $data[0]['InternetGatewayDevice']['LANDevice'][1]['WLANConfiguration'][1]['SSID']['_value'];
             $info["SSIDAdvertisementEnabled"] = $data[0]['InternetGatewayDevice']['LANDevice'][1]['WLANConfiguration'][1]['SSIDAdvertisementEnabled']['_value'];
             $info["WLANEnable"] = $data[0]['InternetGatewayDevice']['LANDevice'][1]['WLANConfiguration'][1]['Enable']['_value'];
@@ -410,7 +418,26 @@ class RouterSettingController extends Controller
         // Print or use the list of active devices
         print_r($activeDevices);
     }
-
+    public function rebootRouter($id = '00259E-EG8141A5-48575443F6E9A3A4')
+    {
+        $rebootUrl = 'http://1.1.1.2:7557/devices/'.$id.'/tasks?connection_request';
+        $requiredData = '{"name": "reboot"}';
+        $ch1 = curl_init($rebootUrl);
+        curl_setopt($ch1, CURLOPT_POST, true);
+        curl_setopt($ch1, CURLOPT_POSTFIELDS, $requiredData);
+        curl_setopt($ch1, CURLOPT_RETURNTRANSFER, true);
+        $response = curl_exec($ch1);
+        $code = curl_getinfo($ch1)["http_code"];
+        curl_close($ch1);
+        if($code === 200)
+        {
+            return redirect()->back()->with('success', "Successfully Rebooted your router")->with('info', "Your Router will be Active within few Minutes");
+        }
+        else 
+        {
+            return redirect()->back()->with('failed', "Failed to Reboot your router");
+        }
+    }
     
     public function routerSetting(Request $request)
     {
