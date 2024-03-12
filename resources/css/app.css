@@ -15463,3 +15463,9 @@ html.maximized-card {
   width: 32px;
 }
 /*# sourceMappingURL=adminlte.css.map */
+
+.feature_img{
+  height: 150px;
+  width: auto;
+  object-fit: cover;
+}

@@ -323,7 +323,7 @@
                     </tr>
                     <tr>
                         <td>Home(200Mbps)</td>
-                        <td>Developer</td>
+                        <td>1 Year</td>
                         <td>Khalti</td>
                         <td>42</td>
                         <td>2010-12-22</td>
@@ -371,7 +371,7 @@
                     </tr>
                     <tr>
                         <td>Home(200Mbps)</td>
-                        <td>Developer</td>
+                        <td>1 Year</td>
                         <td>Esewa</td>
                         <td>53</td>
                         <td>2009-10-22</td>
@@ -475,7 +475,7 @@
                     </tr>
                     <tr>
                         <td>Home(200Mbps)</td>
-                        <td>Developer</td>
+                        <td>1 Year</td>
                         <td>Cash</td>
                         <td>61</td>
                         <td>2013-08-11</td>
@@ -515,7 +515,7 @@
                     </tr>
                     <tr>
                         <td>Home(200Mbps)</td>
-                        <td>Junior Javascript Developer</td>
+                        <td>Junior Javascript 1 Year</td>
                         <td>Khalti</td>
                         <td>43</td>
                         <td>2013-02-01</td>
@@ -547,7 +547,7 @@
                     </tr>
                     <tr>
                         <td>Home(200Mbps)</td>
-                        <td>Developer</td>
+                        <td>1 Year</td>
                         <td>Cash</td>
                         <td>30</td>
                         <td>2010-07-14</td>
@@ -563,7 +563,7 @@
                     </tr>
                     <tr>
                         <td>Home(200Mbps)</td>
-                        <td>Javascript Developer</td>
+                        <td>Javascript 1 Year</td>
                         <td>Cheque</td>
                         <td>29</td>
                         <td>2011-06-27</td>
@@ -603,7 +603,14 @@
 
 <script>
     new DataTable('#example', {
-    order: [[4, 'desc']]
+    order: [[4, 'desc']],
+    columnDefs: [
+        {
+            target: 3,
+            visible: false,
+            searchable: false
+        }
+    ]
 });
 </script>
 

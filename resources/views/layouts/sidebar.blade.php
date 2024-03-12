@@ -47,11 +47,11 @@
             </li>
             @endauth
 
-            <li class="nav-item">
+            {{-- <li class="nav-item">
               <a href="/offers" class="nav-link @yield('offers')"><i class="nav-icon fa-solid fa-bullhorn"></i>
                 <p>Offers</p>
               </a>
-            </li>
+            </li> --}}
             <li class="nav-item">
               <a href="/services" class="nav-link @yield('services')"><i class="nav-icon fa-solid fa-microchip"></i>
                 <p>Services</p>
