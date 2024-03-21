@@ -8,7 +8,8 @@ use Symfony\Component\HttpFoundation\Response;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UsersRolesController;
 
-class RoleMiddleware
+
+class NotRole
 {
     /**
      * Handle an incoming request.
@@ -24,7 +25,7 @@ class RoleMiddleware
             $hasRole = (new UsersRolesController())->hasUserRole($userId, $roleId);
 
             // allow the request to proceed. Otherwise, return a 403 error.
-            if ($hasRole) {   //&& $hasEditPermission
+            if (!$hasRole) {   //&& $hasEditPermission
                 return $next($request);
             } else {
                 return back()->with('failed', 'sorry you are not authorized to access');

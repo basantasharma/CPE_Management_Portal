@@ -15,6 +15,7 @@ use App\Http\Controllers\PermissionsController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\RouterSettingController;
+use App\Http\Controllers\FivegRouterSettingController;
 use App\Http\Controllers\SupportController;
 use App\Http\Controllers\OffersController;
 use App\Http\Controllers\ServicesController;
@@ -39,21 +40,14 @@ use App\Http\Controllers\EmailVarificationController;
 // Route::get('/welcome', function () {
 //     return view('welcome');
 // });
-Route::get('/', [HomeController::class, 'showHomePage'])->name('index');
-Route::get('/adduser', [UserController::class, 'showAddUserPage'])->name('adduser')->middleware(['auth', 'verified']);;
-
-Route::get('/login', [LoginController::class, 'showLoginPage'])->name('login');
-Route::post('/login', [LoginController::class, 'startLogin'])->name('login');
+Route::get('/adduser', [UserController::class, 'showAddUserPage'])->name('adduser')->middleware(['auth', 'verified']);
 
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::get('/register', [RegisterController::class, 'showRegisterPage'])->name('register');
 Route::post('/register', [RegisterController::class, 'startRegistration'])->name('register');
 
-Route::get('/dashboard', [DashboardController::class, 'showDashboardPage'])->name('dashboard')->middleware('auth');
-Route::get('/account', [AccountController::class, 'showAccountPage'])->name('account')->middleware('auth');
-Route::get('/router', [RouterSettingController::class, 'showRouterSettingPage'])->name('router')->middleware('auth');
-Route::get('/support', [SupportController::class, 'showSupportPage'])->name('support')->middleware('auth');
+
 Route::get('/offers', [OffersController::class, 'showOffersPage'])->name('offers');
 Route::get('/services', [ServicesController::class, 'showServicesPage'])->name('services');
 Route::get('/contacts', [ContactsController::class, 'showContactsPage'])->name('contacts');
@@ -90,8 +84,12 @@ Route::get('/deletealluserpermission', [UsersPermissionsController::class, 'dele
 Route::get('/getactivedevice', [RouterSettingController::class, 'getActiveDevices'])->name('getActiveDevices')->middleware('auth');
 Route::get('/refreshhost', [RouterSettingController::class, 'refreshHost'])->name('refreshHost')->middleware('auth');
 Route::get('/getrouterinfo', [RouterSettingController::class, 'getRouterInfo'])->name('getRouterInfo')->middleware('auth');
-Route::post('/routersetting', [RouterSettingController::class, 'routerSetting'])->name('routerSetting')->middleware('auth');
 Route::post('/reboot', [RouterSettingController::class, 'rebootRouter'])->name('rebootRouter')->middleware('auth');
+
+
+Route::post('/reboot5g', [FivegRouterSettingController::class, 'rebootRouter'])->name('reboot5gRouter')->middleware('auth');
+Route::post('/5g', [FivegRouterSettingController::class, 'routerSetting'])->name('5grouterSetting')->middleware('auth');
+Route::get('/5g', [FivegRouterSettingController::class, 'showRouterSettingPage'])->name('showRouterSettingPage')->middleware('auth');
 
 
 Route::get('/email/verify',[EmailVarificationController::class, 'index'])->middleware('auth')->name('verification.notice');
@@ -105,9 +103,26 @@ Route::get('/email/verify/{id}/{hash}', [EmailVarificationController::class, 'em
  
 Route::post('/email/verification-notification',[EmailVarificationController::class, 'sendEmailVerificationNotification'])->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 
-// Route::middleware([])->group(function () {
+Route::get('/', [HomeController::class, 'showHomePage'])->name('index');
+
+Route::middleware(['guest'])->group(function () {
+    Route::get('/login', [LoginController::class, 'showLoginPage'])->name('login');
+    Route::post('/login', [LoginController::class, 'startLogin'])->name('login');
+});
+
+
+Route::middleware(['auth', 'notrole:admin', 'notrole:technician'])->group(function () {
+
+    Route::get('/dashboard', [DashboardController::class, 'showDashboardPage'])->name('dashboard');
+    Route::get('/router', [RouterSettingController::class, 'showRouterSettingPage'])->name('router');
+    Route::get('/account', [AccountController::class, 'showAccountPage'])->name('account');
+    Route::get('/support', [SupportController::class, 'showSupportPage'])->name('support');
+    
+    Route::post('/routersetting', [RouterSettingController::class, 'routerSetting'])->name('routerSetting');
+
+});
+
 Route::middleware(['auth', 'role:admin'])->group(function () {
-//Route::middleware(['auth'])->group(function () {
     Route::get('/admin', [AdminController::class, 'showAdminPage'])->name('admin');
 
     //Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');

@@ -27,7 +27,8 @@ class User extends Authenticatable implements MustVerifyEmail
         'username',
         'email',
         'password',
-        // 'router_serial_no',
+        'router_serial_no',
+        'router_model_name',
     ];
 
     /**

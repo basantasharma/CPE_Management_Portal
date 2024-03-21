@@ -15,24 +15,39 @@
               </a>
             </li>
 
-            @auth  
-            <li class="nav-item">
-              <a href="/dashboard" class="nav-link @yield('dashboard')"><i class="nav-icon fa-solid fa-gauge-high"></i>
-                <p>Dashboard</p>
-              </a>
-            </li>
+            @auth
+              @role('admin')
+                <li class="nav-item">
+                  <a href="/admin" class="nav-link @yield('dashboard')"><i class="nav-icon fa-solid fa-gauge-high"></i>
+                    <p>Dashboard</p>
+                  </a>
+                </li>
+              @else
+                <li class="nav-item">
+                  <a href="/dashboard" class="nav-link @yield('dashboard')"><i class="nav-icon fa-solid fa-gauge-high"></i>
+                    <p>Dashboard</p>
+                  </a>
+                </li>
+              @endrole
+              @role('technician')
+                <li class="nav-item">
+                  <a href="/register" class="nav-link @yield('register')"><i class="fa-solid fa-user-plus"></i>
+                    <p>Register User</p>
+                  </a>
+                </li>
+              @endrole
 
-            <li class="nav-item">
-              <a href="/account" class="nav-link @yield('account')"><i class="nav-icon fa-solid fa-user-secret"></i>
-                <p>Account</p>
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a href="/router" class="nav-link @yield('routersetting')"><i class="nav-icon fa-solid fa-wifi"></i>
-                <p>Router Setting</p>
-              </a>
-            </li>
+              <li class="nav-item">
+                <a href="/account" class="nav-link @yield('account')"><i class="nav-icon fa-solid fa-user-secret"></i>
+                  <p>Account</p>
+                </a>
+              </li>
+             
+              <li class="nav-item">
+                <a href="/router" class="nav-link @yield('routersetting')"><i class="nav-icon fa-solid fa-wifi"></i>
+                  <p>Router Setting</p>
+                </a>
+              </li>
 
             <li class="nav-item">
               <a href="/support" class="nav-link @yield('support')"><i class="nav-icon fa-solid fa-ticket"></i>

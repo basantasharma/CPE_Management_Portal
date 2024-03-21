@@ -13,20 +13,23 @@
 //   }
 // });
 
-// const toggleNewPassword5g = document.querySelector("#toggle-newPassword5g");
-// const newPassword5g = document.querySelector("#newPassword5g");
+const toggleNewPassword5g = document.querySelector("#toggle-newPassword5GHz");
+const newPassword5g = document.querySelector("#newPassword5GHz");
 
-// toggleNewPassword5g.addEventListener("click", function() {
-//   if (newPassword5g.type === "password") {
-//     newPassword5g.type = "text";
-//     toggleNewPassword5g.classList.remove("bi-eye-slash");
-//     toggleNewPassword5g.classList.add("bi-eye");
-//   } else {
-//     newPassword5g.type = "password";
-//     toggleNewPassword5g.classList.remove("bi-eye");
-//     toggleNewPassword5g.classList.add("bi-eye-slash");
-//   }
-// });
+if(toggleNewPassword5g)
+{
+  toggleNewPassword5g.addEventListener("click", function() {
+    if (newPassword5g.type === "password") {
+      newPassword5g.type = "text";
+      toggleNewPassword5g.classList.remove("bi-eye-slash");
+      toggleNewPassword5g.classList.add("bi-eye");
+    } else {
+      newPassword5g.type = "password";
+      toggleNewPassword5g.classList.remove("bi-eye");
+      toggleNewPassword5g.classList.add("bi-eye-slash");
+    }
+  });
+}
 
 
 // const togglecurrentPassword24g = document.querySelector("#toggle-currentPassword24g");
@@ -44,17 +47,19 @@
 //   }
 // });
 
-const toggleNewPassword24g = document.querySelector("#toggle-newPassword24g");
-const newPassword24g = document.querySelector("#newPassword24g");
-
-toggleNewPassword24g.addEventListener("click", function() {
-  if (newPassword24g.type === "password") {
-    newPassword24g.type = "text";
-    toggleNewPassword24g.classList.remove("bi-eye-slash");
-    toggleNewPassword24g.classList.add("bi-eye");
-  } else {
-    newPassword24g.type = "password";
-    toggleNewPassword24g.classList.remove("bi-eye");
-    toggleNewPassword24g.classList.add("bi-eye-slash");
-  }
-});
+const toggleNewPassword24g = document.querySelector("#toggle-newPassword24GHz");
+const newPassword24g = document.querySelector("#newPassword24GHz");
+if(toggleNewPassword24g)
+{
+  toggleNewPassword24g.addEventListener("click", function() {
+    if (newPassword24g.type === "password") {
+      newPassword24g.type = "text";
+      toggleNewPassword24g.classList.remove("bi-eye-slash");
+      toggleNewPassword24g.classList.add("bi-eye");
+    } else {
+      newPassword24g.type = "password";
+      toggleNewPassword24g.classList.remove("bi-eye");
+      toggleNewPassword24g.classList.add("bi-eye-slash");
+    }
+  });
+}

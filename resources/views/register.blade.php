@@ -1,6 +1,7 @@
 @extends('./layouts/base')
 @section('title', 'Register-Telnet')
 @section('headerLeft', 'Register')
+@section('register', 'Active')
 @section('body')
 <div class="row">
   <div class="col-12 col-sm-6 col-md-6 col-lg-4"></div>
@@ -34,11 +35,14 @@
         <label class="form-label" for="password_confirmation">Confirm Password</label>
         <input name="password_confirmation" type="password" id="password_confirmation" class="form-control form-control-md" placeholder="********" />
       </div>
-
-      {{-- <div class="form-outline mb-2">
-        <label class="form-label" for="typeSerialNumberX-2">Serial Number</label>
-        <input name="serialnumber" type="text" id="typeSerialNumberX-2" class="form-control form-control-md" placeholder="Serial Number" />
-      </div> --}}
+      <div class="form-outline mb-2">
+        <label class="form-label" for="typeModelNameX-2">CPE Model Name</label>
+        <input name="router_model_name" type="text" id="typeModelNameX-2" class="form-control form-control-md" placeholder="Model Name" oninput="this.value = this.value.toUpperCase()"/>
+      </div>
+      <div class="form-outline mb-2">
+        <label class="form-label" for="typeSerialNumberX-2">CPE Serial Number</label>
+        <input name="router_serial_no" type="text" id="typeSerialNumberX-2" class="form-control form-control-md" placeholder="Serial Number" oninput="this.value = this.value.toUpperCase()" />
+      </div>
       <div class="text-center">
         <button class="btn btn-info" type="submit">Register</button>
       </div>

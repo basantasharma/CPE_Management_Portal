@@ -1,6 +1,7 @@
 @extends('./layouts/base')
 @section('title', 'Login-Telnet')
 @section('headerLeft', 'Sign in')
+@section('login', 'Active')
 
 @section('body')
 <div class="container">
@@ -33,8 +34,8 @@
           <div class="text-center">
               <button class="btn btn-info" type="submit">Login</button>
           </div>
-          <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="/register"
-              class="link-danger">Register</a></p>
+          {{-- <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="/register"
+              class="link-danger">Register</a></p> --}}
           {{-- <hr class="my-2">
       
               <button class="btn btn-lg btn-block btn-primary" style="background-color: #dd4b39;"

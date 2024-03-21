@@ -3,6 +3,9 @@
 
 @section('body')
 <h1>This is admin panel</h1>
+
+
+
   @auth
     hello {{ \Auth::user()->username }} your id is : {{ \Auth::user()->id }}
       <br>
@@ -29,8 +32,7 @@
       <section class="vh-60" style="background-color: #508bfc;">
         <div class="container-fluid py-3 h-60">
           <div class="row d-flex justify-content-center align-items-center h-60">
-            {{-- <div class="col-12 col-md-6 col-lg-4 col-xl-3 m-2"> --}}
-              @permission('editor')
+              {{-- @permission('editor') --}}
               <div class="col-12 col-md-6 col-lg-4 col-xl-2 m-2">
                 <div class="card shadow-2-strong" style="border-radius: 1rem;">
                   <div class="card-body p-4 text-left">
@@ -48,8 +50,8 @@
                   </div>
                 </div>
               </div>
-              @endpermission
-              @permission('editor')
+              {{-- @endpermission --}}
+              {{-- @permission('editor') --}}
               <div class="col-12 col-md-6 col-lg-4 col-xl-3 m-2">
                 <div class="card shadow-2-strong" style="border-radius: 1rem;">
                   <div class="card-body p-4 text-left">
@@ -72,7 +74,7 @@
                   </div>
                 </div>
               </div>
-              @endpermission
+              {{-- @endpermission --}}
               <div class="col-12 col-md-6 col-lg-4 col-xl-3 m-2">
                 <div class="card shadow-2-strong" style="border-radius: 1rem;">
                   <div class="card-body p-4 text-left">
@@ -128,9 +130,6 @@
                             @foreach ($registeredroles as $role)
                             <option value={{ $role->id }}>{{ $role->id }},{{ $role->role }}</option>
                             @endforeach
-                            {{-- @foreach($userRoles as $roles)
-                            <option value={{ $roles->id }} >{{ $roles->id }},{{ $roles->role }}</option>
-                            @endforeach --}}
                           </select>
                         </div>
                         <div class="text-center">
@@ -144,7 +143,7 @@
         </div>
       </section>
     @endrole
-<!-- permission management section started-->
+
     @role('manager')
       <section class="vh-60" style="background-color: #50fce5;">
         <div class="container-fluid py-5 h-60">
@@ -245,9 +244,6 @@
                           @foreach ($registeredpermissions as $permissions)
                           <option value={{ $permissions->id }}>{{ $permissions->id }},{{ $permissions->permission }}</option>
                           @endforeach
-                          {{-- @foreach($userRoles as $roles)
-                          <option value={{ $roles->id }} >{{ $roles->id }},{{ $roles->role }}</option>
-                          @endforeach --}}
                         </select>
                       </div>
                       <div class="text-center">

@@ -124,7 +124,7 @@
 
         </div>
     </div>
-    <form class="row" action="/routersetting" method="post">
+    <form class="row" action="/5g" method="post">
         @csrf
         @method('post')
         @foreach($routerSettingInfo['noOfWifi'] as $routerSettingInfoWifi)

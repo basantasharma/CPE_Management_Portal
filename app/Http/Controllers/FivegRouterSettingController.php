@@ -15,14 +15,15 @@ use Carbon\Carbon;
 // router uses information table 
 // router configuration status table and all the required models
 
-class RouterSettingController extends Controller
+class FivegRouterSettingController extends Controller
 {
     public function showRouterSettingPage()
     {
-        return view('routersetting');
+        return view('fivegroutersetting');
     }
     //$id = OUI - product class - serial number
 
+    //used
     public function refreshWifiPower($id)
     {
         $refreshUrl = 'http://1.1.1.2:7557/devices/'.$id.'/tasks?connection_request';
@@ -44,7 +45,7 @@ class RouterSettingController extends Controller
         }
     }
 
-    //returns true if success to refresh 
+    //used
     public function refreshWifiNumbers($id)
     {
         $refreshUrl = 'http://1.1.1.2:7557/devices/'.$id.'/tasks?connection_request';
@@ -66,7 +67,8 @@ class RouterSettingController extends Controller
         }
     }
 
-    //returns true if refress success else false
+    //used
+    //yo chaine kura ho 5g ra 2.4 g duitaai ko lagi same for both kind
     public function refreshLANDeviceHost($id)
     {
         $refreshUrl = 'http://1.1.1.2:7557/devices/'.$id.'/tasks?connection_request';
@@ -89,6 +91,53 @@ class RouterSettingController extends Controller
         }
     }
 
+    // public function refreshWANConfiguration($id)
+    // {
+    //     $refreshUrl = 'http://1.1.1.2:7557/devices/'.$id.'/tasks?connection_request';
+    //     $requiredData = '{"name": "refreshObject", "objectName": "InternetGatewayDevice.LANDevice.1.WLANConfiguration"}';
+    //     $ch1 = curl_init($refreshUrl);
+    //     curl_setopt($ch1, CURLOPT_POST, true);
+    //     curl_setopt($ch1, CURLOPT_POSTFIELDS, $requiredData);
+    //     curl_setopt($ch1, CURLOPT_RETURNTRANSFER, true);
+    //     $response = curl_exec($ch1);
+    //     $code = curl_getinfo($ch1)["http_code"];
+    //     curl_close($ch1);
+    //     if($code === 200)
+    //     {
+    //         return true;
+    //     }
+    //     else 
+    //     {
+    //         return false;
+    //     }
+    // }
+
+    //get routerPower function is completed
+    //returns int for Wifi power
+    
+    // public function getWiFiPower($id)
+    // {
+    //     if($this->refreshWifiPower($id))
+    //     {
+    //         $url = 'http://1.1.1.2:7557/devices?query=%7B%22_id%22%3A%22'.$id.'%22%7D&projection=InternetGatewayDevice.LANDevice.1.WiFi.X_HW_Txpower';
+    //         $ch = curl_init($url);
+    //         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    //         $response = curl_exec($ch);
+    //         if (curl_errno($ch)) {
+    //             die('cURL error: ' . curl_error($ch));
+    //         }
+    //         curl_close($ch);
+    //         $data = json_decode($response, true);
+    //         $power = $data[0]['InternetGatewayDevice']['LANDevice'][1]['WiFi']['X_HW_Txpower']['_value'];
+    //         return $power;
+    //     }
+    //     else
+    //     {
+    //         return false;
+    //     }
+    // }
+
+    //used
     //returns an array with key valye as supported bands
     public function getSupportedFrequencyBand($id)
     {
@@ -119,7 +168,7 @@ class RouterSettingController extends Controller
         }
     }
 
-    //returns id of currently logged in user
+    //used
     public function getIdFromSerial($serial)
     {
         $url = 'http://1.1.1.2:7557/devices?query=%7B%22_deviceId._SerialNumber%22%3A%22'.$serial.'%22%7D&projection=_Id';
@@ -134,7 +183,7 @@ class RouterSettingController extends Controller
         return $data[0]['_id'];
     }
 
-    //converts datetime to current timezone
+    //used
     public function convertLastBoot($data)
     {
         // Assuming you have the client's timezone stored in a variable $clientTimezone
@@ -154,39 +203,210 @@ class RouterSettingController extends Controller
         return $duration;
     }
 
+    // public function getActiveDevices($id)
+    // {
 
-    public function getRouterInfo()
-    {
-        $id = $this->getIdFromSerial(\Auth::user()->router_serial_no);
-        $availableFrequencyBands = $this->getSupportedFrequencyBand($id);
-        $info = array();
-        if($this->refreshWifiPower($id))
-        {
-            $url = 'http://1.1.1.2:7557/devices?query=%7B%22_id%22%3A%22'.$id.'%22%7D&projection=InternetGatewayDevice.LANDevice.1.WiFi.X_HW_Txpower,_lastBoot';
-            $ch = curl_init($url);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            $response = curl_exec($ch);
-            if (curl_errno($ch)) {
-                die('cURL error: ' . curl_error($ch));
-            }
-            curl_close($ch);
-            $data = json_decode($response, true);
-            $info["active"] = 'Active';
-            $info["lastBoot"] = $this->convertLastBoot($data[0]['_lastBoot']);
-            $info["routerPower"] = $data[0]['InternetGatewayDevice']['LANDevice'][1]['WiFi']['X_HW_Txpower']['_value'];
-            $data = json_encode($info);
-            return $data;
-        }
-        else
-        {
-            $info["active"] = 'Offline';
-            $info["lastBoot"] = [];
-            $info["routerPower"] = 'null';
-            $data = json_encode($info);
-            return $data;
-        }
-    }
-    //returns everything needed to display in router page
+    //     $activeDevice = array();
+    
+    //     $url = 'http://1.1.1.2:7557/devices?query=%7B%22_id%22%3A%22'.$id.'%22%7D&projection=InternetGatewayDevice.LANDevice.1.Hosts.Host.1';
+    //     $ch = curl_init($url);
+    //     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    //     $response = curl_exec($ch);
+    //     if (curl_errno($ch)) {
+    //         die('cURL error: ' . curl_error($ch));
+    //     }
+    //     curl_close($ch);
+    //     if (empty($response)) {
+    //         die('No response received from the URL.');
+    //     }
+    //     $data = json_decode($response, true);
+    //     if ($data === null) {
+    //         die('Failed to parse JSON response.');
+    //     }
+    //     $hosts = $data[0]['InternetGatewayDevice']['LANDevice'][1]['Hosts']['Host'];
+    //     foreach($hosts as $host)
+    //     {
+    //         if($host['Active']['_value'] === true)
+    //         {
+    //             var_dump($host['HostName']);
+    //             array_push($activeDevice, $host['HostName']['_value']);
+    //             $activeDevice[] = $host['HostName']['_value'];
+    //             print_r($host['HostName']['_value'].$host['IPAddress']['_value'].$host['MACAddress']['_value']);
+    //             echo "<br>";
+    //         }
+    //     }
+    //     print_r($activeDevice);
+    // }
+
+    // public function getChannel($id)
+    // {
+
+    //     $url = 'http://1.1.1.2:7557/devices?query=%7B%22_id%22%3A%22'.$id.'%22%7D&projection=InternetGatewayDevice.LANDevice.1.WLANConfiguration.1.Channel';
+    //     $ch = curl_init($url);
+    //     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    //     $response = curl_exec($ch);
+    //     if (curl_errno($ch)) {
+    //         die('cURL error: ' . curl_error($ch));
+    //     }
+    //     curl_close($ch);
+    //     if (empty($response)) {
+    //         die('No response received from the URL.');
+    //     }
+    //     $data = json_decode($response, true);
+    //     print_r($data[0]['InternetGatewayDevice']['LANDevice'][1]['WLANConfiguration'][1]['ChannelsInUse']['_value']);
+    //     exit();
+    //     if ($data === null) {
+    //         die('Failed to parse JSON response.');
+    //     }
+        
+    // }
+
+    // public function getSSID($id)
+    // {
+    //     $url = 'http://1.1.1.2:7557/devices?query=%7B%22_id%22%3A%22'.$id.'%22%7D&projection=InternetGatewayDevice.LANDevice.1.WLANConfiguration.1.SSID';
+    //     $ch = curl_init($url);
+    //     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    //     $response = curl_exec($ch);
+    //     if (curl_errno($ch)) {
+    //         die('cURL error: ' . curl_error($ch));
+    //     }
+    //     curl_close($ch);
+    //     $data = json_decode($response, true);
+    //     $SSID = $data[0]['InternetGatewayDevice']['LANDevice'][1]['WLANConfiguration'][1]['SSID']['_value'];
+    //     return $SSID;
+    // }
+
+
+
+    //return array with frequency band and boolean as a key => value pair
+
+    // public function getSSIDAdvertisementEnabled($id)
+    // {
+    //     $availableFrequencyBands = $this->getSupportedFrequencyBand($id);
+    //     $SSIDAdvertisementEnabled = array();
+    //     if($availableFrequencyBands)
+    //     {
+    //         foreach($availableFrequencyBands as $key => $value)
+    //         {
+    //             $url = 'http://1.1.1.2:7557/devices?query=%7B%22_id%22%3A%22'.$id.'%22%7D&projection=InternetGatewayDevice.LANDevice.1.WLANConfiguration.'.$key.'.SSIDAdvertisementEnabled';
+    //             $ch = curl_init($url);
+    //             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    //             $response = curl_exec($ch);
+    //             if (curl_errno($ch)) {
+    //                 die('cURL error: ' . curl_error($ch));
+    //             }
+    //             curl_close($ch);
+    //             $data = json_decode($response, true);
+    //             $SSIDAdvertisementEnabled[$key] = $data[0]['InternetGatewayDevice']['LANDevice'][1]['WLANConfiguration'][$key]['SSIDAdvertisementEnabled']['_value'];
+    //         }
+    //         return $SSIDAdvertisementEnabled;
+    //     }
+    //     else
+    //     {
+    //         return false;
+    //     }
+    // }
+
+    //returns an array as key => value
+
+    // public function getWLANEnable($id)
+    // {
+    //     $availableFrequencyBands = $this->getSupportedFrequencyBand($id);
+    //     $projection = "";
+    //     $WLANEnable = array();
+    //     if($availableFrequencyBands)
+    //     {
+    //         foreach($availableFrequencyBands as $key => $value)
+    //         {
+    //             $projection .= "InternetGatewayDevice.LANDevice.1.WLANConfiguration.".$key.".Enable";
+    //             if($value !== end($availableFrequencyBands))
+    //             {
+    //                 $projection .= ",";
+    //             }
+    //         }
+    //         $url = 'http://1.1.1.2:7557/devices?query=%7B%22_id%22%3A%22'.$id.'%22%7D&projection='.$projection;
+    //         $ch = curl_init($url);
+    //         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    //         $response = curl_exec($ch);
+    //         if (curl_errno($ch)) {
+    //             die('cURL error: ' . curl_error($ch));
+    //         }
+    //         curl_close($ch);
+    //         $data = json_decode($response, true);
+    //         foreach($availableFrequencyBands as $key => $value)
+    //         {
+    //             $WLANEnable[$key] = $data[0]['InternetGatewayDevice']['LANDevice'][1]['WLANConfiguration'][$key]['Enable']['_value'];
+    //         }
+    //         return $WLANEnable;
+    //     }
+    //     else
+    //     {
+    //         return false;
+    //     } 
+    // }
+
+    //Helps to recieve all connected CPE ID
+
+    // public function getCPE()
+    // {
+    //     $url = 'http://1.1.1.2:7557/devices?query=&projection=_id';
+    //     $ch = curl_init($url);
+    //     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    //     $response = curl_exec($ch);
+    //     if (curl_errno($ch)) {
+    //         die('cURL error: ' . curl_error($ch));
+    //     }
+    //     curl_close($ch);
+    //     if (empty($response)) {
+    //         die('No response received from the URL.');
+    //     }
+    //     $devices = json_decode($response, true);
+    //     // print_r($devices);
+    //     // exit();
+    //     if ($devices === null) {
+    //         die('Failed to parse JSON response.');
+    //     }
+    //     foreach($devices as $device)
+    //     {
+    //         // print_r($device['_id']);
+    //         print_r($device);
+    //         echo "<br><br><br><br>";
+    //     }
+    // }
+
+    // public function getRouterInfo()
+    // {
+    //     $id = $this->getIdFromSerial(\Auth::user()->router_serial_no);
+    //     $info = array();
+    //     if($this->refreshLANDeviceHost($id))
+    //     {
+    //         $url = 'http://1.1.1.2:7557/devices?query=%7B%22_id%22%3A%22'.$id.'%22%7D&projection=InternetGatewayDevice.LANDevice.1.WiFi.X_HW_Txpower,_lastBoot';
+    //         $ch = curl_init($url);
+    //         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    //         $response = curl_exec($ch);
+    //         if (curl_errno($ch)) {
+    //             die('cURL error: ' . curl_error($ch));
+    //         }
+    //         curl_close($ch);
+    //         $data = json_decode($response, true);
+
+    //         $info["active"] = 'Active';
+    //         $info["lastBoot"] = $this->convertLastBoot($data[0]['_lastBoot']);
+    //         $info["routerPower"] = $data[0]['InternetGatewayDevice']['LANDevice'][1]['WiFi']['X_HW_Txpower']['_value'];
+    //         $data = json_encode($info);
+    //         return $data;
+    //     }
+    //     else
+    //     {
+    //         $info["active"] = 'Offline';
+    //         $info["lastBoot"] = [];
+    //         $info["routerPower"] = 'null';
+    //         $data = json_encode($info);
+    //         return $data;
+    //     }
+    // }
+
+
     public function getRouterSettingInfo()
     {
         $id = $this->getIdFromSerial(\Auth::user()->router_serial_no);
@@ -250,6 +470,41 @@ class RouterSettingController extends Controller
             return $data;
         }
     }
+    
+    
+    public function getActiveUsersRouter()
+    {
+        $apiUrl = 'http://1.1.1.2:7557/devices?query=&projection=InternetGatewayDevice.LANDevice';
+        // Initialize cURL session
+        $ch = curl_init($apiUrl);
+        
+        // Execute cURL session and fetch the response
+        $response = curl_exec($ch);
+        
+        // Check for cURL errors
+        if (curl_errno($ch)) {
+            die('cURL error: ' . curl_error($ch));
+        }
+        
+        // Close cURL session
+        curl_close($ch);
+        print_r($response);
+        exit();
+        // Decode the JSON response
+        $data = json_decode($response, true);
+        
+        // Check if the response was successfully decoded
+        if ($data === null) {
+            die('Failed to parse JSON response.');
+        }
+
+        // Extract the list of active devices
+        $activeDevices = $data['result'];
+        
+        // Print or use the list of active devices
+        print_r($activeDevices);
+    }
+
 
     public function rebootRouter()
     {
@@ -330,7 +585,7 @@ class RouterSettingController extends Controller
             ]);
         if($response)
         {
-            return back()->with('success', "Setting Saved");
+            return redirect('5g')->with('success', "Setting Saved");
         }
     }
 }

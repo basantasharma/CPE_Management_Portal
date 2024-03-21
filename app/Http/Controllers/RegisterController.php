@@ -15,33 +15,37 @@ class RegisterController extends Controller
     //
     public function showRegisterPage()
     {
-        if(\Auth::user())
-        {
-            \Auth::logout(); //this is considered as leatest method
+        // if(\Auth::user())
+        // {
+        //     \Auth::logout(); //this is considered as leatest method
  
-            $request->session()->invalidate();
+        //     $request->session()->invalidate();
      
-            $request->session()->regenerateToken();
-        }
+        //     $request->session()->regenerateToken();
+        // }
         return view('register');
     }
 
     public function startRegistration(Request $request)
     {
         $request->validate([
-            'name'            => 'required|string|max:30',
-            'username'        => 'required|string|max:20',
-            'email'           => 'required|email|unique:users,email',
-            'password'        => 'required|confirmed|min:8',
+            'name'                  => 'required|string|max:30',
+            'username'              => 'required|string|max:20',
+            'email'                 => 'required|email|unique:users,email',
+            'password'              => 'required|confirmed|min:8',
+            'router_serial_no'      => 'required',
+            'router_model_name'     => 'required',
         ]);
 
 
 
         $user = User::create([
-            'name'            => $request->name,
-            'username'        => $request->username,
-            'email'           => $request->email,
-            'password'        => $request->password
+            'name'                  => $request->name,
+            'username'              => $request->username,
+            'email'                 => $request->email,
+            'password'              => $request->password,
+            'router_serial_no'      => $request->router_serial_no,
+            'router_model_name'     => $request->router_serial_name
             
         ]);
 
